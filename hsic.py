@@ -7,7 +7,7 @@ Original file is located at
     https://colab.research.google.com/drive/1ozY99QOhKfLSwP54dpSehhJClrCmGcLX
 """
 import os
-os.environ["CUDA_VISIBLE_DEVICES"] = "4"
+os.environ["CUDA_VISIBLE_DEVICES"] = "5"
 import numpy as np
 import io
 import pandas as pd
@@ -95,7 +95,7 @@ def training(X, Y, X_test, Y_test, num_iterations=2000, batch_size=32, loss_type
     Y = torch.from_numpy(Y).cuda()
     n = X.shape[0]
     if loss_type == 'hsic':
-        f_optimizer = optim.Adam(f.parameters(), lr=np.random.uniform(low=0.001,high=0.002))
+        f_optimizer = optim.Adam(f.parameters(), lr=np.random.uniform(low=0.008,high=0.002))
     elif loss_type == 'mse' or loss_type == 'mae':
         f_optimizer = optim.Adam(f.parameters(), lr=np.random.uniform(low=0.0001, high=0.001))
     scheduler = optim.lr_scheduler.StepLR(f_optimizer, step_size=30, gamma=0.5)
@@ -173,7 +173,7 @@ y1 = df['mpg']
 features_list_m1 = ['cylinders', 'displacement', 'horsepower', 'weight', 'acceleration', 'model year', 'origin']
 X1 = df[features_list_m1]
 y1 = df['mpg']
-for i in [3]:
+for i in [1]:
     X_train, Y_train = np.array(X1[X1['origin'] != i]).astype(np.double), np.array(y1[X1['origin'] != i]).astype(
         np.double)
     X_test, Y_test = np.array(X1[X1['origin'] == i]).astype(np.double), np.array(y1[X1['origin'] == i]).astype(

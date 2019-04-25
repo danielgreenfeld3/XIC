@@ -6,9 +6,9 @@ import matplotlib.pyplot as plt
 #load the losses
 mse_exp, hsic_exp, mae_exp = [],[],[]
 for i in [1,2,3]:
-    mse_exp.append(np.load('exp/non_linear_32mse'+str(i)+'.npy'))
-    hsic_exp.append(np.load('exp/non_linear_32hsic' + str(i) + '.npy'))
-    mae_exp.append(np.load('exp/non_linear_32mae' + str(i) + '.npy'))
+    mse_exp.append(np.load('exp/non_linear_32mse1'+str(i)+'.npy'))
+    hsic_exp.append(np.load('exp/non_linear_32hsic1' + str(i) + '.npy'))
+    mae_exp.append(np.load('exp/non_linear_32mae1' + str(i) + '.npy'))
 
 #arrange the losses in a dataframe object which contains information on the training loss and the test city
 dfs_mse = pd.concat([pd.DataFrame({'RMSE':mse_exp[i],
