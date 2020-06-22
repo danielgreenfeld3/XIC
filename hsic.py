@@ -5,7 +5,7 @@ def pairwise_distances(x):
 
 def GaussianKernelMatrix(x, sigma=1):
     pairwise_distances_ = pairwise_distances(x)
-    return torch.exp(-pairwise_distances_ / (sigma ** 2))
+    return torch.exp(-pairwise_distances_ /sigma)
 
 def HSIC(x, y, s_x=1, s_y=1):
     m,_ = x.shape #batch size
